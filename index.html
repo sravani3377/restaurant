@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Spice & Palette — Restaurant</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --accent:#FF6B6B;    /* coral */
+      --accent-2:#FFD166;  /* warm yellow */
+      --bg:#0F172A;        /* deep navy */
+      --card:#0B1220;
+      --glass: rgba(255,255,255,0.06);
+      --muted:rgba(255,255,255,0.7);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background: linear-gradient(180deg,#061026 0%, #071428 50%, #071a2f 100%);
+      color:#fff; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      line-height:1.45
+    }
+    .container{max-width:1100px;margin:0 auto;padding:32px}
+
+    /* Header */
+    header{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    .logo{display:flex;align-items:center;gap:12px}
+    .logo .mark{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:700;color:#111}
+    nav ul{list-style:none;display:flex;gap:18px;margin:0;padding:0}
+    nav a{color:var(--muted);text-decoration:none;font-weight:600}
+    .btn{background:linear-gradient(90deg,var(--accent),#FF9F43);padding:10px 18px;border-radius:10px;text-decoration:none;color:#071428;font-weight:700}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-top:18px}
+    .hero .intro h1{font-size:48px;margin:0 0 12px;color:var(--accent-2)}
+    .hero .intro p{color:var(--muted);margin:0 0 18px}
+    .cards{display:flex;gap:12px}
+    .card{background:var(--glass);padding:10px;border-radius:12px;min-width:140px}
+    .card h4{margin:6px 0 0;font-size:16px;color:#fff}
+    .card p{margin:4px 0 0;color:var(--muted);font-size:13px}
+
+    /* Right column hero image */
+    .hero-img{border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.6)}
+    .hero-img img{display:block;width:100%;height:100%;object-fit:cover}
+
+    /* Menu section */
+    .section{margin-top:48px}
+    .section-header{display:flex;justify-content:space-between;align-items:center}
+    .menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:18px}
+    .menu-item{background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));border-radius:14px;overflow:hidden}
+    .menu-item img{width:100%;height:140px;object-fit:cover;display:block}
+    .menu-item .meta{padding:12px}
+    .menu-item h3{margin:0 0 6px}
+    .price{color:var(--accent);font-weight:700}
+
+    /* Gallery */
+    .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:18px}
+    .gallery img{width:100%;height:120px;object-fit:cover;border-radius:8px}
+
+    /* Footer */
+    footer{margin-top:48px;padding:22px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))}
+    .contact{display:flex;gap:18px;align-items:center}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      .hero .intro h1{font-size:34px}
+      .gallery{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:480px){
+      .menu-grid{grid-template-columns:1fr}
+      .gallery img{height:100px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <div class="mark">SP</div>
+        <div>
+          <div style="font-weight:700">Spice & Palette</div>
+          <div style="font-size:12px;color:var(--muted)">Fine dining • Local flavors</div>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="#reserve" class="btn">Reserve</a>
+    </header>
+
+    <section class="hero">
+      <div class="intro">
+        <h1>Colorful tastes, vibrant nights</h1>
+        <p>Welcome to Spice & Palette — where every dish is a canvas and every flavor tells a story. Experience seasonal menus, handcrafted cocktails, and a warm, colorful atmosphere.</p>
+
+        <div class="cards">
+          <div class="card">
+            <div style="font-size:14px;font-weight:700">Brunch Specials</div>
+            <p>Weekends 9am — 2pm</p>
+          </div>
+          <div class="card">
+            <div style="font-size:14px;font-weight:700">Cocktail Hour</div>
+            <p>Daily 5pm — 7pm</p>
+          </div>
+          <div class="card">
+            <div style="font-size:14px;font-weight:700">Private Events</div>
+            <p>Book a table for celebrations</p>
+          </div>
+        </div>
+
+        <div style="margin-top:18px">
+          <a href="#menu" class="btn">Explore Menu</a>
+        </div>
+      </div>
+
+      <div class="hero-img">
+        <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=8a2a7d6fd9c6f5d1c4e9f0d6c2b353c4" alt="Restaurant interior with colorful plates">
+      </div>
+    </section>
+
+    <section id="menu" class="section">
+      <div class="section-header">
+        <h2 style="margin:0;color:var(--accent)">Chef's Picks</h2>
+        <a href="#reserve" class="btn" style="background:linear-gradient(90deg,#FFD166,#06D6A0)">Order Online</a>
+      </div>
+
+      <div class="menu-grid">
+        <article class="menu-item">
+          <img src="https://images.unsplash.com/photo-1604908177522-1d8b0c9d4b07?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=1b1fbb0b2ad3f5f7b2b2a7b1f0c8a6d2" alt="Smoky grilled prawns">
+          <div class="meta">
+            <h3>Smoky Prawn Skewers <span class="price">₹499</span></h3>
+            <p style="color:var(--muted);font-size:13px">Charcoal-grilled prawns, citrus glaze, herbs.</p>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=8f3f1e4edc8f9d3f3a4b5c6d7e8f9a0b" alt="Signature salad">
+          <div class="meta">
+            <h3>Rainbow Quinoa Salad <span class="price">₹349</span></h3>
+            <p style="color:var(--muted);font-size:13px">Roasted veg, avocado, citrus dressing.</p>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <img src="https://images.unsplash.com/photo-1604908177596-7dd3b8f6b6a1?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=5c7d3f1b2a5a4f6f4b2c3d1e0f9a8b7c" alt="Creamy pasta">
+          <div class="meta">
+            <h3>Truffle Mushroom Pasta <span class="price">₹429</span></h3>
+            <p style="color:var(--muted);font-size:13px">Handmade pasta, creamy truffle sauce.</p>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=2c7b3d2d1f4b6a7c8d9e0f1a2b3c4d5e" alt="Colorful dessert">
+          <div class="meta">
+            <h3>Mango & Rose Cheesecake <span class="price">₹299</span></h3>
+            <p style="color:var(--muted);font-size:13px">Seasonal mango, rosewater crumble.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="gallery" class="section">
+      <div class="section-header">
+        <h2 style="margin:0;color:var(--accent)">Gallery</h2>
+        <div style="color:var(--muted);font-size:14px">A peek into our colorful moments</div>
+      </div>
+      <div class="gallery" style="margin-top:12px">
+        <img src="https://images.unsplash.com/photo-1458642849426-cfb724f15ef7?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=7a6c3b8e2ef6bd5f9d3c2b1a0f7e6d4c" alt="Dish 1">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=6b8e4a8f3d2e1c0b9a7f6d5e4c3b2a1f" alt="Dish 2">
+        <img src="https://images.unsplash.com/photo-1541542684-72d2a0a6b5d7?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d" alt="Interior 1">
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=abc123def456ghi789jkl012mno345pq" alt="Interior 2">
+      </div>
+    </section>
+
+    <footer id="contact">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap">
+        <div>
+          <h3 style="margin:0">Visit Us</h3>
+          <p style="margin:6px 0 0;color:var(--muted)">123 Color Lane, Foodie City • Mon–Sun 9am–11pm</p>
+          <p style="margin:6px 0 0;color:var(--muted)">Phone: +91 98765 43210</p>
+        </div>
+        <div class="contact">
+          <div style="text-align:right">
+            <div style="font-weight:700">Private Dining & Events</div>
+            <div style="color:var(--muted);font-size:13px">Email: events@spicepalette.example</div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
+

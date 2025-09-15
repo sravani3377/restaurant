@@ -1,0 +1,48 @@
+pipeline {
+    agent any
+
+    environment {
+        DOCKERHUB_USER        = "asha12345"     // replace with your DockerHub username
+        IMAGE_NAME            = "restaurant-app"
+        IMAGE_TAG             = "latest"
+        DOCKERHUB_CREDENTIALS = "dockerhub-cred"             // Jenkins credentials ID
+        APP_PORT              = "8088"                        // host port
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/sravani3377/restaurant.git'
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                sh """
+                  docker build -t ${DOCKERHUB_USER}/${IMAGE_NAME}:${IMAGE_TAG} .
+                """
+            }
+        }
+
+        stage('Push to DockerHub') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: "${DOCKERHUB_CREDENTIALS}", usernameVariable: 'USER', passwordVariable: 'PASS')]) {
+                    sh """
+                      echo $PASS | docker login -u $USER --password-stdin
+                      docker push ${DOCKERHUB_USER}/${IMAGE_NAME}:${IMAGE_TAG}
+                    """
+                }
+            }
+        }
+
+        stage('Run Container') {
+            steps {
+                sh """
+                  docker rm -f restaurant-app || true
+                  docker run -d --name restaurant-app -p ${APP_PORT}:80 ${DOCKERHUB_USER}/${IMAGE_NAME}:${IMAGE_TAG}
+                """
+            }
+        }
+    }
+}
+
